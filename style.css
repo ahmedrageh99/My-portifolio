@@ -1,0 +1,39 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background-color: #f4f4f4;
+  color: #333;
+}
+header {
+  background: #222;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+}
+header nav a {
+  margin: 0 1rem;
+  color: #c89b59;
+  text-decoration: none;
+}
+main {
+  padding: 2rem;
+}
+section {
+  margin-bottom: 2rem;
+}
+h2 {
+  border-bottom: 2px solid #c89b59;
+  padding-bottom: 0.5rem;
+}
+.project {
+  background: white;
+  padding: 1rem;
+  margin-top: 1rem;
+  border-left: 5px solid #c89b59;
+}
+footer {
+  text-align: center;
+  background: #222;
+  color: white;
+  padding: 1rem;
+}
