@@ -1,196 +1,254 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Hamdah London - Prototype</title>
-<style>
-  /* Reset and basic styles */
-  body, h1, h2, h3, p, ul, li, a {
-    margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  }
-  body { background: #fafafa; color: #333; line-height: 1.5; }
-  a { text-decoration: none; color: #603813; }
-  a:hover { color: #8b5e3c; }
-  header, footer { background: #222; color: white; padding: 1rem 2rem; }
-  header nav ul {
-    list-style: none; display: flex; gap: 1.5rem; justify-content: center;
-  }
-  header nav ul li a {
-    font-weight: 600; font-size: 1rem;
-  }
-  main { max-width: 960px; margin: 2rem auto; padding: 0 1rem; }
-  section { margin-bottom: 3rem; }
-  h1, h2 { color: #8b5e3c; }
-  h1 { font-weight: 400; margin-bottom: 0.5rem; }
-  h2 { border-bottom: 2px solid #c89b59; padding-bottom: 0.5rem; margin-bottom: 1rem; }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hamdah London - Prototype</title>
+  <link rel="icon" href="https://hamdahlondon.co.uk/favicon.ico" type="image/x-icon">
+  <style>
+    /* Reset and base styles */
+    *, *::before, *::after {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
 
-  /* Hero Section */
-  #hero {
-    text-align: center;
-    padding: 4rem 1rem;
-    background: url('https://cdn.shopify.com/s/files/1/0585/2430/8627/files/HamdahLondon_hero_image_1400x.jpg?v=1689757561') center/cover no-repeat;
-    color: white;
-    text-shadow: 0 0 8px rgba(0,0,0,0.7);
-    border-radius: 8px;
-    margin-bottom: 3rem;
-  }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #fafafa;
+      color: #333;
+      line-height: 1.6;
+      padding: 0 1rem;
+    }
 
-  /* Products Grid */
-  .products {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
-  }
-  .product {
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 6px rgb(0 0 0 / 0.1);
-    padding: 1rem;
-    text-align: center;
-  }
-  .product img {
-    max-width: 100%;
-    border-radius: 6px;
-    margin-bottom: 0.5rem;
-  }
-  .product-title {
-    font-size: 1.2rem;
-    margin-bottom: 0.3rem;
-  }
-  .product-description {
-    font-size: 0.9rem;
-    color: #555;
-  }
+    a {
+      text-decoration: none;
+      color: #603813;
+    }
 
-  /* Blog Grid */
-  .blogs {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
-  }
-  .blog-post {
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 6px rgb(0 0 0 / 0.1);
-    padding: 1rem;
-  }
-  .blog-post-title {
-    font-weight: 600;
-    color: #785f39;
-    margin-bottom: 0.5rem;
-  }
-  .blog-post-excerpt {
-    font-size: 0.9rem;
-    color: #666;
-  }
+    a:hover {
+      color: #8b5e3c;
+    }
 
-  /* Footer */
-  footer {
-    text-align: center;
-    font-size: 0.8rem;
-  }
-</style>
+    header, footer {
+      background: #222;
+      color: white;
+      padding: 1rem 2rem;
+      text-align: center;
+    }
+
+    header nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    header nav ul li a {
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    main {
+      max-width: 960px;
+      margin: 2rem auto;
+    }
+
+    section {
+      margin-bottom: 3rem;
+    }
+
+    h1, h2 {
+      color: #8b5e3c;
+    }
+
+    h1 {
+      font-weight: 400;
+      margin-bottom: 0.5rem;
+    }
+
+    h2 {
+      border-bottom: 2px solid #c89b59;
+      padding-bottom: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    /* Hero Section */
+    #hero {
+      text-align: center;
+      padding: 4rem 1rem;
+      background: url('https://cdn.shopify.com/s/files/1/0585/2430/8627/files/HamdahLondon_hero_image_1400x.jpg?v=1689757561') center/cover no-repeat;
+      color: white;
+      text-shadow: 0 0 8px rgba(0,0,0,0.7);
+      border-radius: 8px;
+      margin-bottom: 3rem;
+    }
+
+    /* Products Grid */
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .product {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgb(0 0 0 / 0.1);
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .product img {
+      max-width: 100%;
+      border-radius: 6px;
+      margin-bottom: 0.5rem;
+    }
+
+    .product-title {
+      font-size: 1.2rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .product-description {
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    /* Blog Grid */
+    .blogs {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .blog-post {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgb(0 0 0 / 0.1);
+      padding: 1rem;
+    }
+
+    .blog-post-title {
+      font-weight: 600;
+      color: #785f39;
+      margin-bottom: 0.5rem;
+    }
+
+    .blog-post-excerpt {
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    /* Footer */
+    footer a {
+      color: #c89b59;
+    }
+
+    footer {
+      font-size: 0.8rem;
+      margin-top: 2rem;
+    }
+  </style>
 </head>
 <body>
 
-<header>
-  <nav>
-    <ul>
-      <li><a href="#hero">Home</a></li>
-      <li><a href="#products-section">Shop</a></li>
-      <li><a href="#blogs-section">Blog</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
-</header>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#products-section">Shop</a></li>
+        <li><a href="#blogs-section">Blog</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-<main>
-  <section id="hero">
-    <h1>Hamdah London</h1>
-    <p>Luxury Artisan Fragrances | Vegan & Cruelty-Free | Award-Winning</p>
-  </section>
+  <main>
+    <section id="hero">
+      <h1>Hamdah London</h1>
+      <p>Luxury Artisan Fragrances | Vegan & Cruelty-Free | Award-Winning</p>
+    </section>
 
-  <section id="products-section">
-    <h2>Featured Products</h2>
-    <div class="products" id="product-list">
-      <!-- Products rendered by JS -->
-    </div>
-  </section>
+    <section id="products-section">
+      <h2>Featured Products</h2>
+      <div class="products" id="product-list">
+        <!-- Products rendered by JS -->
+      </div>
+    </section>
 
-  <section id="blogs-section">
-    <h2>Latest Blog Posts</h2>
-    <div class="blogs" id="blog-list">
-      <!-- Blogs rendered by JS -->
-    </div>
-  </section>
-</main>
+    <section id="blogs-section">
+      <h2>Latest Blog Posts</h2>
+      <div class="blogs" id="blog-list">
+        <!-- Blogs rendered by JS -->
+      </div>
+    </section>
+  </main>
 
-<footer id="contact">
-  &copy; 2025 Hamdah London | All Rights Reserved | <a href="mailto:contact@hamdahlondon.co.uk" style="color:#c89b59;">contact@hamdahlondon.co.uk</a>
-</footer>
+  <footer id="contact">
+    &copy; 2025 Hamdah London | All Rights Reserved | 
+    <a href="mailto:contact@hamdahlondon.co.uk">contact@hamdahlondon.co.uk</a>
+  </footer>
 
-<script>
-  // Product data
-  const products = [
-    {
-      title: "Thirty Eau de Parfum",
-      image: "https://cdn.shopify.com/s/files/1/0585/2430/8627/products/30_600x.png?v=1689757561",
-      description: "A captivating blend of floral and amber notes inspired by the elegance of the number 30."
-    },
-    {
-      title: "Sweet & Delicious",
-      image: "https://cdn.shopify.com/s/files/1/0585/2430/8627/products/SweetAndDelicious_600x.png?v=1689757561",
-      description: "A sweet fragrance with hints of vanilla and caramel for a delightful experience."
-    },
-    {
-      title: "A Morning Breeze",
-      image: "https://cdn.shopify.com/s/files/1/0585/2430/8627/products/MorningBreeze_600x.png?v=1689757561",
-      description: "Fresh and invigorating scent that captures the essence of a crisp morning breeze."
-    }
-  ];
+  <script>
+    // Product data
+    const products = [
+      {
+        title: "Thirty Eau de Parfum",
+        image: "https://cdn.shopify.com/s/files/1/0585/2430/8627/products/30_600x.png?v=1689757561",
+        description: "A captivating blend of floral and amber notes inspired by the elegance of the number 30."
+      },
+      {
+        title: "Sweet & Delicious",
+        image: "https://cdn.shopify.com/s/files/1/0585/2430/8627/products/SweetAndDelicious_600x.png?v=1689757561",
+        description: "A sweet fragrance with hints of vanilla and caramel for a delightful experience."
+      },
+      {
+        title: "A Morning Breeze",
+        image: "https://cdn.shopify.com/s/files/1/0585/2430/8627/products/MorningBreeze_600x.png?v=1689757561",
+        description: "Fresh and invigorating scent that captures the essence of a crisp morning breeze."
+      }
+    ];
 
-  // Blog post data
-  const blogPosts = [
-    {
-      title: "Are Perfumes Safe to Wear?",
-      excerpt: "Explore the safety of fragrances and what makes Hamdah perfumes a safe choice for you."
-    },
-    {
-      title: "Behind the Fragrance",
-      excerpt: "Discover the story and inspiration behind each artisan scent we craft."
-    },
-    {
-      title: "Award-Winning Artisan Fragrances",
-      excerpt: "Learn about our journey receiving the Best Luxury Artisan Fragrance Company award."
-    }
-  ];
+    // Blog post data
+    const blogPosts = [
+      {
+        title: "Are Perfumes Safe to Wear?",
+        excerpt: "Explore the safety of fragrances and what makes Hamdah perfumes a safe choice for you."
+      },
+      {
+        title: "Behind the Fragrance",
+        excerpt: "Discover the story and inspiration behind each artisan scent we craft."
+      },
+      {
+        title: "Award-Winning Artisan Fragrances",
+        excerpt: "Learn about our journey receiving the Best Luxury Artisan Fragrance Company award."
+      }
+    ];
 
-  // Render products
-  const productListEl = document.getElementById('product-list');
-  products.forEach(product => {
-    const productEl = document.createElement('div');
-    productEl.className = 'product';
-    productEl.innerHTML = `
-      <img src="${product.image}" alt="${product.title}">
-      <h3 class="product-title">${product.title}</h3>
-      <p class="product-description">${product.description}</p>
-    `;
-    productListEl.appendChild(productEl);
-  });
+    // Render products
+    const productListEl = document.getElementById('product-list');
+    products.forEach(product => {
+      const productEl = document.createElement('article');
+      productEl.className = 'product';
+      productEl.innerHTML = `
+        <img src="${product.image}" alt="${product.title} by Hamdah London">
+        <h3 class="product-title">${product.title}</h3>
+        <p class="product-description">${product.description}</p>
+      `;
+      productListEl.appendChild(productEl);
+    });
 
-  // Render blogs
-  const blogListEl = document.getElementById('blog-list');
-  blogPosts.forEach(post => {
-    const postEl = document.createElement('div');
-    postEl.className = 'blog-post';
-    postEl.innerHTML = `
-      <h3 class="blog-post-title">${post.title}</h3>
-      <p class="blog-post-excerpt">${post.excerpt}</p>
-    `;
-    blogListEl.appendChild(postEl);
-  });
-</script>
-
+    // Render blog posts
+    const blogListEl = document.getElementById('blog-list');
+    blogPosts.forEach(post => {
+      const postEl = document.createElement('article');
+      postEl.className = 'blog-post';
+      postEl.innerHTML = `
+        <h3 class="blog-post-title">${post.title}</h3>
+        <p class="blog-post-excerpt">${post.excerpt}</p>
+      `;
+      blogListEl.appendChild(postEl);
+    });
+  </script>
 </body>
 </html>
