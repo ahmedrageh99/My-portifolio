@@ -2,252 +2,1168 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Hamdah London - Prototype</title>
-  <link rel="icon" href="https://hamdahlondon.co.uk/favicon.ico" type="image/x-icon">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hamdah Consulting Unit – EU/UK Cosmetics Compliance</title>
+
   <style>
-    /* Reset and base styles */
-    *, *::before, *::after {
-      margin: 0; padding: 0; box-sizing: border-box;
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
     }
 
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #fafafa;
-      color: #333;
-      line-height: 1.6;
-      padding: 0 1rem;
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: #102043;
+      background: #f4f6fb;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
     }
 
     a {
+      color: inherit;
       text-decoration: none;
-      color: #603813;
     }
 
-    a:hover {
-      color: #8b5e3c;
+    .container {
+      width: 90%;
+      max-width: 1120px;
+      margin: 0 auto;
     }
 
-    header, footer {
-      background: #222;
-      color: white;
-      padding: 1rem 2rem;
-      text-align: center;
+    .section {
+      padding: 80px 0;
     }
 
-    header nav ul {
-      list-style: none;
+    /* Header */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: #ffffff;
+      box-shadow: 0 2px 12px rgba(15, 23, 42, 0.06);
+    }
+
+    .header-inner {
       display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 0;
+      gap: 24px;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.25rem;
+    }
+
+    .logo span {
+      color: #2563eb;
+    }
+
+    .main-nav {
+      display: flex;
+      gap: 20px;
+      font-size: 0.95rem;
+    }
+
+    .main-nav a {
+      padding: 6px 10px;
+      border-radius: 999px;
+      color: #4b5563;
+    }
+
+    .main-nav a.active,
+    .main-nav a:hover {
+      background: #e0edff;
+      color: #1d4ed8;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
       justify-content: center;
-      gap: 1.5rem;
-      flex-wrap: wrap;
+      border-radius: 999px;
+      padding: 10px 20px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.1s ease;
     }
 
-    header nav ul li a {
+    .btn-primary {
+      background: linear-gradient(135deg, #2563eb, #4f46e5);
+      color: #ffffff;
+      box-shadow: 0 10px 24px rgba(37, 99, 235, 0.3);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 14px 28px rgba(37, 99, 235, 0.4);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: #2563eb;
+      border: 1px solid #bfdbfe;
+    }
+
+    .btn-ghost:hover {
+      background: #eff6ff;
+    }
+
+    /* Hero */
+    .hero {
+      padding: 80px 0 72px;
+      background: radial-gradient(circle at top left, #e0f2fe, transparent 60%),
+                  radial-gradient(circle at bottom right, #e9d5ff, transparent 55%);
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 40px;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      padding: 4px 12px;
+      border-radius: 999px;
+      background: #e0edff;
+      color: #1d4ed8;
+      font-size: 0.8rem;
       font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .hero h1 {
+      margin-top: 16px;
+      font-size: 2.3rem;
+      line-height: 1.2;
+    }
+
+    .lead {
+      margin-top: 12px;
       font-size: 1rem;
+      color: #4b5563;
     }
 
-    main {
-      max-width: 960px;
-      margin: 2rem auto;
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 20px;
     }
 
-    section {
-      margin-bottom: 3rem;
-    }
-
-    h1, h2 {
-      color: #8b5e3c;
-    }
-
-    h1 {
-      font-weight: 400;
-      margin-bottom: 0.5rem;
-    }
-
-    h2 {
-      border-bottom: 2px solid #c89b59;
-      padding-bottom: 0.5rem;
-      margin-bottom: 1rem;
-    }
-
-    /* Hero Section */
-    #hero {
-      text-align: center;
-      padding: 4rem 1rem;
-      background: url('https://cdn.shopify.com/s/files/1/0585/2430/8627/files/HamdahLondon_hero_image_1400x.jpg?v=1689757561') center/cover no-repeat;
-      color: white;
-      text-shadow: 0 0 8px rgba(0,0,0,0.7);
-      border-radius: 8px;
-      margin-bottom: 3rem;
-    }
-
-    /* Products Grid */
-    .products {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .product {
-      background: white;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgb(0 0 0 / 0.1);
-      padding: 1rem;
-      text-align: center;
-    }
-
-    .product img {
-      max-width: 100%;
-      border-radius: 6px;
-      margin-bottom: 0.5rem;
-    }
-
-    .product-title {
-      font-size: 1.2rem;
-      margin-bottom: 0.3rem;
-    }
-
-    .product-description {
+    .hero-meta {
+      margin-top: 16px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
       font-size: 0.9rem;
-      color: #555;
+      color: #4b5563;
     }
 
-    /* Blog Grid */
-    .blogs {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
+    .hero-visual {
+      display: flex;
+      justify-content: flex-end;
     }
 
-    .blog-post {
-      background: white;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgb(0 0 0 / 0.1);
-      padding: 1rem;
+    .hero-card {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: 0 18px 45px rgba(15, 23, 42, 0.12);
+      max-width: 360px;
     }
 
-    .blog-post-title {
+    .hero-card-label {
+      font-size: 0.85rem;
       font-weight: 600;
-      color: #785f39;
-      margin-bottom: 0.5rem;
+      color: #6b7280;
+      margin-bottom: 8px;
     }
 
-    .blog-post-excerpt {
+    .hero-card ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 8px 0;
+    }
+
+    .hero-card li {
       font-size: 0.9rem;
-      color: #666;
+      padding-left: 18px;
+      position: relative;
+      margin-bottom: 6px;
+    }
+
+    .hero-card li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: #2563eb;
+    }
+
+    .hero-card-note {
+      margin: 0;
+      font-size: 0.85rem;
+      color: #6b7280;
+    }
+
+    /* Sections */
+    .section-heading.center {
+      text-align: center;
+    }
+
+    .section-heading h2 {
+      margin-top: 10px;
+      font-size: 1.7rem;
+    }
+
+    .section-subtitle {
+      margin-top: 8px;
+      color: #4b5563;
+      max-width: 640px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Cards */
+    .card-grid {
+      margin-top: 32px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 24px;
+    }
+
+    .service-card {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+    }
+
+    .service-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #eff6ff;
+      color: #1d4ed8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .service-image {
+      border-radius: 12px;
+      background: #e0f2fe;
+      height: 140px;
+      object-fit: cover;
+    }
+
+    .service-card h3 {
+      margin: 4px 0;
+    }
+
+    .service-card p {
+      font-size: 0.92rem;
+      color: #4b5563;
+    }
+
+    .card-link {
+      margin-top: auto;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #1d4ed8;
+    }
+
+    .card-link:hover {
+      text-decoration: underline;
+    }
+
+    .stars {
+      color: #f59e0b;
+      font-size: 0.95rem;
+    }
+
+    /* Testimonials */
+    .testimonials {
+      background: #eef2ff;
+    }
+
+    .testimonial-grid {
+      margin-top: 32px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+
+    .testimonial-card {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+    }
+
+    .testimonial-profile {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+
+    .avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 999px;
+      background: #e0edff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      color: #1d4ed8;
+    }
+
+    .role {
+      font-size: 0.85rem;
+      color: #6b7280;
+    }
+
+    /* FAQ */
+    .faq {
+      background: #f9fafb;
+    }
+
+    .faq-list {
+      margin-top: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .faq-item {
+      background: #ffffff;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 8px 22px rgba(15, 23, 42, 0.06);
+    }
+
+    .faq-question {
+      width: 100%;
+      padding: 16px 20px;
+      text-align: left;
+      background: none;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.98rem;
+      cursor: pointer;
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      padding: 0 20px;
+      transition: max-height 0.25s ease, padding-bottom 0.25s ease;
+    }
+
+    .faq-answer p {
+      font-size: 0.92rem;
+      color: #4b5563;
+    }
+
+    .faq-item.open .faq-answer {
+      max-height: 200px;
+      padding-bottom: 16px;
+    }
+
+    .faq-item.open .faq-toggle {
+      transform: rotate(45deg);
+    }
+
+    /* Contact CTA */
+    .contact-cta {
+      background: linear-gradient(135deg, #2563eb, #4f46e5);
+      color: #ffffff;
+    }
+
+    .contact-cta-inner {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    /* Page hero style reused for section headers */
+    .page-hero {
+      padding: 72px 0 32px;
+      background: #eff6ff;
+    }
+
+    /* About */
+    .about-layout {
+      background: #ffffff;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 32px;
+    }
+
+    .about-panel {
+      background: #f3f4ff;
+      border-radius: 20px;
+      padding: 24px;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin-bottom: 12px;
+    }
+
+    .stat {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 12px 14px;
+    }
+
+    .stat-value {
+      display: block;
+      font-weight: 700;
+    }
+
+    .stat-label {
+      font-size: 0.8rem;
+      color: #6b7280;
+    }
+
+    .about-note {
+      font-size: 0.9rem;
+      color: #4b5563;
+    }
+
+    .checklist {
+      list-style: none;
+      padding: 0;
+    }
+
+    .checklist li {
+      padding-left: 20px;
+      position: relative;
+      margin-bottom: 8px;
+      font-size: 0.95rem;
+    }
+
+    .checklist li::before {
+      content: "✔";
+      position: absolute;
+      left: 0;
+      color: #16a34a;
+      font-size: 0.8rem;
+    }
+
+    /* Service detail sections inside single page */
+    .service-detail-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.3fr);
+      gap: 32px;
+      align-items: center;
+    }
+
+    .detail-image {
+      border-radius: 24px;
+      background: linear-gradient(135deg, #e0f2fe, #ede9fe);
+    }
+
+    /* Contact */
+    .contact-section {
+      background: #ffffff;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.2fr);
+      gap: 32px;
+      align-items: start;
+    }
+
+    .contact-info p {
+      font-size: 0.95rem;
+      color: #4b5563;
+    }
+
+    .contact-list {
+      list-style: none;
+      padding: 0;
+      margin-top: 16px;
+      font-size: 0.95rem;
+    }
+
+    .contact-form-card {
+      background: #f3f4ff;
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: 0 12px 32px rgba(15, 23, 42, 0.08);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .form-field {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 14px;
+    }
+
+    label {
+      font-size: 0.9rem;
+      color: #374151;
+    }
+
+    input,
+    textarea {
+      border-radius: 10px;
+      border: 1px solid #d1d5db;
+      padding: 10px 12px;
+      font-size: 0.9rem;
+      font-family: inherit;
+      background: #ffffff;
+    }
+
+    input:focus,
+    textarea:focus {
+      outline: 2px solid #2563eb;
+      outline-offset: 1px;
+    }
+
+    .form-status {
+      margin-top: 8px;
+      font-size: 0.85rem;
+    }
+
+    .form-note {
+      margin-top: 10px;
+      font-size: 0.85rem;
+      color: #6b7280;
     }
 
     /* Footer */
-    footer a {
-      color: #c89b59;
+    .site-footer {
+      padding: 24px 0;
+      background: #0f172a;
+      color: #e5e7eb;
+      font-size: 0.85rem;
     }
 
-    footer {
-      font-size: 0.8rem;
-      margin-top: 2rem;
+    .footer-inner {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      align-items: center;
+      text-align: center;
+    }
+
+    .footer-meta {
+      color: #9ca3af;
+    }
+
+    /* Responsive */
+    @media (max-width: 880px) {
+      .hero-inner,
+      .about-grid,
+      .service-detail-grid,
+      .contact-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero {
+        padding-top: 64px;
+      }
+
+      .main-nav {
+        display: none; /* simple mobile version; can be improved later */
+      }
+
+      .form-row {
+        grid-template-columns: minmax(0, 1fr);
+      }
     }
   </style>
 </head>
 <body>
-
-  <header>
-    <nav>
-      <ul>
-        <li><a href="#hero">Home</a></li>
-        <li><a href="#products-section">Shop</a></li>
-        <li><a href="#blogs-section">Blog</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="logo">Hamdah<span>Consulting</span></div>
+      <nav class="main-nav">
+        <a href="#top" class="active">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a href="#contact" class="btn btn-primary">Book a Call</a>
+    </div>
   </header>
 
-  <main>
-    <section id="hero">
-      <h1>Hamdah London</h1>
-      <p>Luxury Artisan Fragrances | Vegan & Cruelty-Free | Award-Winning</p>
-    </section>
-
-    <section id="products-section">
-      <h2>Featured Products</h2>
-      <div class="products" id="product-list">
-        <!-- Products rendered by JS -->
+  <main id="top">
+    <!-- HERO / LANDING -->
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <p class="badge">EU / UK Cosmetics Compliance</p>
+          <h1>Launch beauty products with confidence and full regulatory alignment.</h1>
+          <p class="lead">
+            We help brands navigate Responsible Person duties, Product Information Files,
+            safety assessments, and labelling requirements for smooth entry into EU and UK markets.
+          </p>
+          <div class="hero-actions">
+            <a href="#contact" class="btn btn-primary">Schedule Free Consultation</a>
+            <a href="#services" class="btn btn-ghost">Explore Services</a>
+          </div>
+          <div class="hero-meta">
+            <span>✔ Founder-friendly support</span>
+            <span>✔ Clear, practical guidance</span>
+            <span>✔ Fast, compliant launch plans</span>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="hero-card">
+            <p class="hero-card-label">Compliance Snapshot</p>
+            <ul>
+              <li>RP Representation – Included</li>
+              <li>PIF &amp; CPSR – Guided step-by-step</li>
+              <li>ISO 22716 &amp; GMP – Documentation support</li>
+            </ul>
+            <p class="hero-card-note">Trusted by indie and emerging beauty brands.</p>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section id="blogs-section">
-      <h2>Latest Blog Posts</h2>
-      <div class="blogs" id="blog-list">
-        <!-- Blogs rendered by JS -->
+    <!-- CORE SERVICES GRID -->
+    <section class="section" id="services">
+      <div class="container">
+        <div class="section-heading center">
+          <p class="badge">Core Services</p>
+          <h2>End-to-end regulatory support for launch-ready cosmetics.</h2>
+          <p class="section-subtitle">
+            Choose a tailored pathway for EU/UK market entry – from Responsible Person onboarding to full documentation.
+          </p>
+        </div>
+
+        <div class="card-grid">
+          <!-- Service 1 -->
+          <article class="service-card">
+            <div class="service-icon">RP</div>
+            <img src="https://via.placeholder.com/600x360?text=Responsible+Person"
+                 alt="Responsible Person service" class="service-image" />
+            <h3>Responsible Person (RP)</h3>
+            <p>
+              Official RP representation with safety oversight, notifications, and ongoing regulatory monitoring.
+            </p>
+            <div class="stars" aria-label="5 star rating">★★★★★</div>
+            <a href="#service-rp" class="card-link">Start RP onboarding →</a>
+          </article>
+
+          <!-- Service 2 -->
+          <article class="service-card">
+            <div class="service-icon">PIF</div>
+            <img src="https://via.placeholder.com/600x360?text=PIF+%26+CPSR"
+                 alt="PIF and CPSR support" class="service-image" />
+            <h3>PIF &amp; CPSR Dossiers</h3>
+            <p>
+              Complete Product Information Files with toxicology, claims, and safety assessments prepared for review.
+            </p>
+            <div class="stars" aria-label="5 star rating">★★★★★</div>
+            <a href="#service-pif" class="card-link">Ask about PIF support →</a>
+          </article>
+
+          <!-- Service 3 -->
+          <article class="service-card">
+            <div class="service-icon">LAB</div>
+            <img src="https://via.placeholder.com/600x360?text=Safety+%26+Stability"
+                 alt="Safety and stability testing" class="service-image" />
+            <h3>Safety &amp; Stability</h3>
+            <p>
+              Challenge tests, micro testing, and stability planning in line with cosmetic regulation expectations.
+            </p>
+            <div class="stars" aria-label="5 star rating">★★★★★</div>
+            <a href="#service-safety" class="card-link">Plan testing roadmap →</a>
+          </article>
+
+          <!-- Service 4 -->
+          <article class="service-card">
+            <div class="service-icon">LAB</div>
+            <img src="https://via.placeholder.com/600x360?text=Labelling+%26+Claims"
+                 alt="Labeling and claims review" class="service-image" />
+            <h3>Labelling &amp; Claims</h3>
+            <p>
+              Review of INCI lists, packaging artwork, and evidence to support marketing and performance claims.
+            </p>
+            <div class="stars" aria-label="5 star rating">★★★★★</div>
+            <a href="#service-claims" class="card-link">Review my claims →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SINGLE SERVICE SECTIONS (DETAIL) -->
+    <section class="section" id="service-rp">
+      <div class="container service-detail-grid">
+        <div>
+          <img src="https://via.placeholder.com/600x360?text=Responsible+Person"
+               alt="Responsible Person service" class="detail-image" />
+        </div>
+        <div>
+          <p class="badge">Single service</p>
+          <h2>EU / UK Responsible Person (RP)</h2>
+          <p>
+            Appoint a trusted partner to act as your official contact for market authorities while
+            keeping your brand in control of key decisions.
+          </p>
+          <ul class="checklist">
+            <li>Designation as EU and/or UK Responsible Person for your products.</li>
+            <li>Notification of products on the relevant cosmetics portals.</li>
+            <li>Verification that PIF, safety data, and artwork are in place and accessible.</li>
+            <li>Regulatory correspondence and support during inspections or queries.</li>
+          </ul>
+          <a href="#contact" class="btn btn-primary">Discuss RP options</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="service-pif">
+      <div class="container service-detail-grid">
+        <div>
+          <img src="https://via.placeholder.com/600x360?text=PIF+%26+CPSR"
+               alt="PIF and CPSR support" class="detail-image" />
+        </div>
+        <div>
+          <p class="badge">Single service</p>
+          <h2>PIF &amp; CPSR Dossier Support</h2>
+          <p>
+            Build inspection-ready Product Information Files and safety reports that clearly document
+            how your products meet regulatory expectations.
+          </p>
+          <ul class="checklist">
+            <li>Formula and raw material data sheets from suppliers.</li>
+            <li>Manufacturing and quality procedures relevant to your products.</li>
+            <li>Safety assessments and toxicology information.</li>
+            <li>Evidence to substantiate performance and marketing claims.</li>
+          </ul>
+          <a href="#contact" class="btn btn-primary">Ask about PIF support</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="service-safety">
+      <div class="container service-detail-grid">
+        <div>
+          <img src="https://via.placeholder.com/600x360?text=Safety+%26+Stability"
+               alt="Safety and stability testing" class="detail-image" />
+        </div>
+        <div>
+          <p class="badge">Single service</p>
+          <h2>Safety &amp; Stability Testing Roadmap</h2>
+          <p>
+            Align your testing strategy with regulatory expectations while staying realistic about
+            timelines and budgets.
+          </p>
+          <ul class="checklist">
+            <li>Microbial challenge testing requirements for your product types.</li>
+            <li>Stability and compatibility studies for packaging and storage conditions.</li>
+            <li>How test results feed into CPSR conclusions and PIF documentation.</li>
+            <li>Next steps if results raise questions or require reformulation.</li>
+          </ul>
+          <a href="#contact" class="btn btn-primary">Plan my testing</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="service-claims">
+      <div class="container service-detail-grid">
+        <div>
+          <img src="https://via.placeholder.com/600x360?text=Labelling+%26+Claims"
+               alt="Labelling and claims review" class="detail-image" />
+        </div>
+        <div>
+          <p class="badge">Single service</p>
+          <h2>Labelling &amp; Claims Review</h2>
+          <p>
+            Ensure your packaging, INCI lists, and marketing statements are clear, accurate, and
+            aligned with cosmetic and advertising rules.
+          </p>
+          <ul class="checklist">
+            <li>Front-of-pack and back-of-pack claims and mandatory information.</li>
+            <li>INCI lists, warnings, and usage instructions.</li>
+            <li>Consistency between digital marketing and physical packaging.</li>
+            <li>Evidence required to support “clinically proven”, “dermatologist tested”, and similar claims.</li>
+          </ul>
+          <a href="#contact" class="btn btn-primary">Review my claims</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT US -->
+    <section class="section about-layout" id="about">
+      <div class="container about-grid">
+        <div>
+          <p class="badge">Who we are</p>
+          <h2>About Hamdah Consulting Unit</h2>
+          <p>
+            Hamdah Consulting Unit was created to support indie and emerging cosmetic brands that
+            need clear, accessible guidance on complex regulatory rules. Many founders feel lost
+            between chemistry, safety data, and legal language. We exist to translate those
+            requirements into practical steps and actionable roadmaps.
+          </p>
+          <p>
+            Drawing on experience with EU/UK cosmetic regulations, quality systems, and audit-ready
+            documentation, our team focuses on giving you clarity: what to do, in what order, and
+            which documents you need in place before launch.
+          </p>
+        </div>
+        <div class="about-panel">
+          <h3>Impact in numbers</h3>
+          <div class="stats-grid">
+            <div class="stat">
+              <span class="stat-value">3.5+</span>
+              <span class="stat-label">Years regulatory experience</span>
+            </div>
+            <div class="stat">
+              <span class="stat-value">25+</span>
+              <span class="stat-label">Product lines supported</span>
+            </div>
+            <div class="stat">
+              <span class="stat-value">80%+</span>
+              <span class="stat-label">Clients first-time approval</span>
+            </div>
+            <div class="stat">
+              <span class="stat-value">100%</span>
+              <span class="stat-label">Founder-led brands</span>
+            </div>
+          </div>
+          <p class="about-note">
+            These numbers reflect the core of our work: practical guidance, responsive support,
+            and documentation that inspection teams can understand at a glance.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW WE WORK -->
+    <section class="section">
+      <div class="container about-grid">
+        <div>
+          <h2>How we work with you</h2>
+          <ul class="checklist">
+            <li>Start with a discovery call to understand your formulas, markets, and launch dates.</li>
+            <li>Design a step-by-step compliance plan tailored to your product portfolio.</li>
+            <li>Coordinate documentation, testing, and artwork review alongside your creative work.</li>
+            <li>Share simple trackers so you always know the status of each product file.</li>
+          </ul>
+        </div>
+        <div>
+          <h2>Values that guide our approach</h2>
+          <ul class="checklist">
+            <li><strong>Clarity:</strong> We avoid legal jargon and explain the “why” behind each requirement.</li>
+            <li><strong>Integrity:</strong> We prioritise consumer safety and truthful marketing claims.</li>
+            <li><strong>Partnership:</strong> We collaborate with your internal and external labs, designers, and suppliers.</li>
+            <li><strong>Scalability:</strong> We design documentation systems that grow with your brand.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="section testimonials">
+      <div class="container">
+        <div class="section-heading center">
+          <p class="badge">Testimonials</p>
+          <h2>What founders say about working with us.</h2>
+          <p class="section-subtitle">
+            Real outcomes from teams navigating EU/UK compliance for the first time.
+          </p>
+        </div>
+
+        <div class="testimonial-grid">
+          <article class="testimonial-card">
+            <div class="testimonial-profile">
+              <div class="avatar">AK</div>
+              <div>
+                <h3>Amina K.</h3>
+                <p class="role">Founder, Luma Beauty</p>
+              </div>
+            </div>
+            <div class="stars">★★★★★</div>
+            <p>
+              “Hamdah guided our PIF and CPSR in record time. Their feedback on labelling saved us weeks before launch.”
+            </p>
+          </article>
+
+          <article class="testimonial-card">
+            <div class="testimonial-profile">
+              <div class="avatar">DR</div>
+              <div>
+                <h3>Daniel R.</h3>
+                <p class="role">Operations Lead, Nordic Skin Lab</p>
+              </div>
+            </div>
+            <div class="stars">★★★★★</div>
+            <p>
+              “Clear steps, zero jargon. Our RP onboarding and ISO documentation finally made sense to the whole team.”
+            </p>
+          </article>
+
+          <article class="testimonial-card">
+            <div class="testimonial-profile">
+              <div class="avatar">SF</div>
+              <div>
+                <h3>Sofia M.</h3>
+                <p class="role">Brand Manager, Verde Organics</p>
+              </div>
+            </div>
+            <div class="stars">★★★★★</div>
+            <p>
+              “They spotted gaps in our claims evidence and helped us relaunch packaging with confidence and compliance.”
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section faq">
+      <div class="container">
+        <div class="section-heading center">
+          <p class="badge">Frequently Asked Questions</p>
+          <h2>Quick answers about EU/UK compliance and our process.</h2>
+        </div>
+
+        <div class="faq-list">
+          <div class="faq-item">
+            <button class="faq-question">
+              Do I need an EU and a UK Responsible Person?
+              <span class="faq-toggle">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>
+                If you sell into both regions, you must appoint an RP in each market. We can coordinate both roles under a
+                single engagement.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              What goes into a Product Information File (PIF)?
+              <span class="faq-toggle">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>
+                A PIF includes formula details, manufacturing data, safety assessments, lab test reports, claims
+                substantiation, and product artwork.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              How long does RP onboarding and PIF preparation take?
+              <span class="faq-toggle">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>
+                Timelines depend on product complexity, but most indie brands complete onboarding and PIF review within
+                4–8 weeks.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              Can you review our marketing claims for compliance?
+              <span class="faq-toggle">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>
+                Yes. We compare each claim against available evidence and cosmetic regulation guidance, then suggest
+                compliant wording.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT CTA -->
+    <section class="section contact-cta">
+      <div class="container contact-cta-inner">
+        <div>
+          <h2>Ready to move your launch forward?</h2>
+          <p>
+            Share your product portfolio and timelines and we’ll outline a clear, step-by-step compliance roadmap.
+          </p>
+        </div>
+        <a href="#contact" class="btn btn-primary">Contact the team</a>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section class="section contact-section" id="contact">
+      <div class="container contact-grid">
+        <div class="contact-info">
+          <p class="badge">Contact</p>
+          <h2>Let’s make your launch audit-ready.</h2>
+          <p>
+            Share a few details about your products and markets, and we’ll respond with clear next
+            steps within 2–3 business days.
+          </p>
+          <p>
+            We typically start with a short video call to walk through your situation and suggest an
+            appropriate level of support.
+          </p>
+          <ul class="contact-list">
+            <li><strong>Email:</strong> info@hamdahconsulting.example</li>
+            <li><strong>Location:</strong> Remote support for EU/UK-focused brands</li>
+          </ul>
+        </div>
+
+        <div class="contact-form-card">
+          <h2>Send us a message</h2>
+          <form id="contact-form">
+            <div class="form-row">
+              <div class="form-field">
+                <label for="name">Full name</label>
+                <input type="text" id="name" name="user_name" required />
+              </div>
+              <div class="form-field">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="user_email" required />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-field">
+                <label for="company">Brand / company</label>
+                <input type="text" id="company" name="user_company" />
+              </div>
+              <div class="form-field">
+                <label for="market">Target market</label>
+                <input type="text" id="market" name="user_market" placeholder="EU, UK, or both" />
+              </div>
+            </div>
+            <div class="form-field">
+              <label for="subject">Subject</label>
+              <input type="text" id="subject" name="subject" required />
+            </div>
+            <div class="form-field">
+              <label for="message">Your message</label>
+              <textarea id="message" name="message" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit form</button>
+            <p id="form-status" class="form-status" aria-live="polite"></p>
+          </form>
+          <p class="form-note">
+            Your details are used only to respond to your enquiry. We do not share them with third
+            parties for marketing.
+          </p>
+        </div>
       </div>
     </section>
   </main>
 
-  <footer id="contact">
-    &copy; 2025 Hamdah London | All Rights Reserved | 
-    <a href="mailto:contact@hamdahlondon.co.uk">contact@hamdahlondon.co.uk</a>
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© 2025 Hamdah Consulting Unit. All rights reserved.</p>
+      <p class="footer-meta">EU/UK Cosmetics Compliance • Regulatory Strategy • Documentation &amp; Claims Review</p>
+    </div>
   </footer>
 
+  <!-- EmailJS CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
   <script>
-    // Product data
-    const products = [
-      {
-        title: "Thirty Eau de Parfum",
-        image: "https://cdn.shopify.com/s/files/1/0585/2430/8627/products/30_600x.png?v=1689757561",
-        description: "A captivating blend of floral and amber notes inspired by the elegance of the number 30."
-      },
-      {
-        title: "Sweet & Delicious",
-        image: "https://cdn.shopify.com/s/files/1/0585/2430/8627/products/SweetAndDelicious_600x.png?v=1689757561",
-        description: "A sweet fragrance with hints of vanilla and caramel for a delightful experience."
-      },
-      {
-        title: "A Morning Breeze",
-        image: "https://cdn.shopify.com/s/files/1/0585/2430/8627/products/MorningBreeze_600x.png?v=1689757561",
-        description: "Fresh and invigorating scent that captures the essence of a crisp morning breeze."
+    // FAQ collapse logic
+    document.addEventListener("DOMContentLoaded", function () {
+      const faqItems = document.querySelectorAll(".faq-item");
+
+      faqItems.forEach((item) => {
+        const question = item.querySelector(".faq-question");
+        question.addEventListener("click", () => {
+          const isOpen = item.classList.contains("open");
+          // close all
+          document.querySelectorAll(".faq-item.open").forEach((openItem) => {
+            openItem.classList.remove("open");
+          });
+          if (!isOpen) {
+            item.classList.add("open");
+          }
+        });
+      });
+
+      // EmailJS contact form
+      const form = document.getElementById("contact-form");
+      if (form) {
+        // TODO: replace with your actual public key, service ID, and template ID from EmailJS dashboard.
+        const PUBLIC_KEY = "YOUR_PUBLIC_KEY";
+        const SERVICE_ID = "YOUR_SERVICE_ID";
+        const TEMPLATE_ID = "YOUR_TEMPLATE_ID";
+
+        if (window.emailjs && PUBLIC_KEY !== "YOUR_PUBLIC_KEY") {
+          emailjs.init(PUBLIC_KEY);
+        }
+
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          const status = document.getElementById("form-status");
+          status.textContent = "Sending...";
+          status.style.color = "#4b5563";
+
+          if (!window.emailjs || PUBLIC_KEY === "YOUR_PUBLIC_KEY") {
+            // Developer mode message if keys not yet configured
+            status.textContent =
+              "EmailJS keys are not configured yet. Please add your PUBLIC_KEY, SERVICE_ID, and TEMPLATE_ID in the script.";
+            status.style.color = "#b91c1c";
+            return;
+          }
+
+          emailjs
+            .sendForm(SERVICE_ID, TEMPLATE_ID, this)
+            .then(function () {
+              // Success message as requested by supervisor
+              status.textContent = "Your message has been sent successfully!";
+              status.style.color = "#15803d";
+              form.reset();
+            })
+            .catch(function () {
+              // Error message as requested by supervisor
+              status.textContent = "Oops! Something went wrong. Please try again.";
+              status.style.color = "#b91c1c";
+            });
+        });
       }
-    ];
-
-    // Blog post data
-    const blogPosts = [
-      {
-        title: "Are Perfumes Safe to Wear?",
-        excerpt: "Explore the safety of fragrances and what makes Hamdah perfumes a safe choice for you."
-      },
-      {
-        title: "Behind the Fragrance",
-        excerpt: "Discover the story and inspiration behind each artisan scent we craft."
-      },
-      {
-        title: "Award-Winning Artisan Fragrances",
-        excerpt: "Learn about our journey receiving the Best Luxury Artisan Fragrance Company award."
-      }
-    ];
-
-    // Render products
-    const productListEl = document.getElementById('product-list');
-    products.forEach(product => {
-      const productEl = document.createElement('article');
-      productEl.className = 'product';
-      productEl.innerHTML = `
-        <img src="${product.image}" alt="${product.title} by Hamdah London">
-        <h3 class="product-title">${product.title}</h3>
-        <p class="product-description">${product.description}</p>
-      `;
-      productListEl.appendChild(productEl);
-    });
-
-    // Render blog posts
-    const blogListEl = document.getElementById('blog-list');
-    blogPosts.forEach(post => {
-      const postEl = document.createElement('article');
-      postEl.className = 'blog-post';
-      postEl.innerHTML = `
-        <h3 class="blog-post-title">${post.title}</h3>
-        <p class="blog-post-excerpt">${post.excerpt}</p>
-      `;
-      blogListEl.appendChild(postEl);
     });
   </script>
 </body>
